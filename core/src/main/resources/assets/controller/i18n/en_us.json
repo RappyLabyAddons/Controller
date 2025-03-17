@@ -10,21 +10,25 @@
       "keyMappingConfiguration": {
         "name": "Edit Key Mapping",
         "jump": {
-          "name": "Jump",
-          "placeholder": "uwu"
+          "name": "Jump"
         }
       },
       "controllerKeyBind": {
         "placeholder": "Press a button..."
       }
     },
-    "mappingTypes": {
+    "mappingType": {
+      "button": "Button",
+      "dpad": "D-Pad",
+      "stick": "Stick",
+      "trigger": "Trigger",
+      "bumper": "Bumper"
+    },
+    "buttonSide": {
       "left": "Left",
       "right": "Right",
-      "button": "Button",
-      "dpad": "DPAD",
-      "stick": "Stick",
-      "trigger": "Trigger"
+      "up": "Up",
+      "down": "Down"
     }
   }
 }

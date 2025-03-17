@@ -6,6 +6,13 @@ import net.labymod.api.configuration.loader.property.ConfigProperty;
 
 public class KeyMappingConfiguration extends Config {
 
-  @ControllerKeyBindSetting
+  @ControllerKeyBindSetting("key.jump")
   private ConfigProperty<Integer> jump = new ConfigProperty<>(-1);
+
+  @ControllerKeyBindSetting("key.forward")
+  private ConfigProperty<Integer> forward = new ConfigProperty<>(-1);
+
+  @ControllerKeyBindSetting("key.back")
+  private ConfigProperty<Integer> backward = new ConfigProperty<>(-1);
+
 }

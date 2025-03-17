@@ -3,6 +3,8 @@ import net.labymod.labygradle.common.extension.LabyModAnnotationProcessorExtensi
 dependencies {
     labyProcessor()
     labyApi("api")
+
+    compileOnly("org.lwjgl:lwjgl-glfw:3.3.3")
 }
 
 labyModAnnotationProcessor {

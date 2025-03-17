@@ -25,4 +25,8 @@ public class ControllerConfiguration extends AddonConfig {
   public ConfigProperty<String> controllerSelection() {
     return controllerSelection;
   }
+
+  public KeyMappingConfiguration keyMappingConfiguration() {
+    return keyMappingConfiguration;
+  }
 }

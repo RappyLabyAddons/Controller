@@ -37,12 +37,12 @@ public class GameTickListener {
         for (int buttonId = 0; buttonId <= GLFW.GLFW_GAMEPAD_BUTTON_LAST; buttonId++) {
           boolean pressed = glfwGamepadState.buttons(buttonId) == GLFW.GLFW_PRESS;
           if (pressed && !pressedKeys[buttonId]) {
-            fireEvent(selectedController, buttonId, State.PRESS);
+            fireEvent(selectedController, buttonId, State.PRESS, false);
             pressedKeys[buttonId] = true;
           } else if (pressed && pressedKeys[buttonId]) {
-            fireEvent(selectedController, buttonId, State.HOLDING);
+            fireEvent(selectedController, buttonId, State.HOLDING, false);
           } else if (!pressed && pressedKeys[buttonId]) {
-            fireEvent(selectedController, buttonId, State.UNPRESSED);
+            fireEvent(selectedController, buttonId, State.UNPRESSED, false);
             pressedKeys[buttonId] = false;
           }
         }
@@ -50,35 +50,36 @@ public class GameTickListener {
         // Handle Triggers
         float ltValue = glfwGamepadState.axes(GLFW.GLFW_GAMEPAD_AXIS_LEFT_TRIGGER);
         float rtValue = glfwGamepadState.axes(GLFW.GLFW_GAMEPAD_AXIS_RIGHT_TRIGGER);
-        float triggerThreshold = 0.5f; // Adjust this threshold as needed
+        float triggerThreshold = 0.0f;
 
         // LT (Left Trigger)
         if (ltValue > triggerThreshold && !pressedKeys[GLFW.GLFW_GAMEPAD_AXIS_LEFT_TRIGGER]) {
-          fireEvent(selectedController, GLFW.GLFW_GAMEPAD_AXIS_LEFT_TRIGGER, State.PRESS);
+          fireEvent(selectedController, GLFW.GLFW_GAMEPAD_AXIS_LEFT_TRIGGER, State.PRESS, true);
           pressedKeys[GLFW.GLFW_GAMEPAD_AXIS_LEFT_TRIGGER] = true;
         } else if (ltValue > triggerThreshold) {
-          fireEvent(selectedController, GLFW.GLFW_GAMEPAD_AXIS_LEFT_TRIGGER, State.HOLDING);
+          fireEvent(selectedController, GLFW.GLFW_GAMEPAD_AXIS_LEFT_TRIGGER, State.HOLDING, true);
         } else if (pressedKeys[GLFW.GLFW_GAMEPAD_AXIS_LEFT_TRIGGER]) {
-          fireEvent(selectedController, GLFW.GLFW_GAMEPAD_AXIS_LEFT_TRIGGER, State.UNPRESSED);
+          fireEvent(selectedController, GLFW.GLFW_GAMEPAD_AXIS_LEFT_TRIGGER, State.UNPRESSED, true);
           pressedKeys[GLFW.GLFW_GAMEPAD_AXIS_LEFT_TRIGGER] = false;
         }
 
         // RT (Right Trigger)
         if (rtValue > triggerThreshold && !pressedKeys[GLFW.GLFW_GAMEPAD_AXIS_RIGHT_TRIGGER]) {
-          fireEvent(selectedController, GLFW.GLFW_GAMEPAD_AXIS_RIGHT_TRIGGER, State.PRESS);
+          fireEvent(selectedController, GLFW.GLFW_GAMEPAD_AXIS_RIGHT_TRIGGER, State.PRESS, true);
           pressedKeys[GLFW.GLFW_GAMEPAD_AXIS_RIGHT_TRIGGER] = true;
         } else if (rtValue > triggerThreshold) {
-          fireEvent(selectedController, GLFW.GLFW_GAMEPAD_AXIS_RIGHT_TRIGGER, State.HOLDING);
+          fireEvent(selectedController, GLFW.GLFW_GAMEPAD_AXIS_RIGHT_TRIGGER, State.HOLDING, true);
         } else if (pressedKeys[GLFW.GLFW_GAMEPAD_AXIS_RIGHT_TRIGGER]) {
-          fireEvent(selectedController, GLFW.GLFW_GAMEPAD_AXIS_RIGHT_TRIGGER, State.UNPRESSED);
+          fireEvent(selectedController, GLFW.GLFW_GAMEPAD_AXIS_RIGHT_TRIGGER, State.UNPRESSED, true);
           pressedKeys[GLFW.GLFW_GAMEPAD_AXIS_RIGHT_TRIGGER] = false;
         }
+
+
       }
     }
   }
 
-
-  private void fireEvent(Controller selectedController, int buttonId, State state) {
-    Laby.fireEvent(new ControllerInputEvent(selectedController, buttonId, state));
+  private void fireEvent(Controller selectedController, int buttonId, State state, boolean trigger) {
+    Laby.fireEvent(new ControllerInputEvent(selectedController, buttonId, state, trigger));
   }
 }

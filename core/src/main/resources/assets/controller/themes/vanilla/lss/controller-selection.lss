@@ -1,0 +1,21 @@
+ControllerSelection {
+  height: 20;
+  orientation: horizontal;
+  margin-top: 2;
+
+  .controller-dropdown {
+    margin-left: 2;
+    margin-right: 2;
+  }
+
+  .refresh-button {
+    width: 20;
+    height: 20;
+    padding: 0;
+
+    Icon {
+      width: 8;
+      height: 8;
+    }
+  }
+}

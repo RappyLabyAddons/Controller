@@ -1,0 +1,13 @@
+ControllerKeyBind {
+  background-color: #000000;
+  border: 1 #999999;
+  place-holder-color: #888888;
+  padding-left: 4;
+  padding-right: 4;
+  width: 80;
+  height: 18;
+}
+
+ControllerKeyBind:focus {
+  border: 1 #ffffff;
+}

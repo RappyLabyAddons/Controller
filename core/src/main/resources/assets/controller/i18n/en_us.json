@@ -3,7 +3,28 @@
     "settings": {
       "enabled": {
         "name": "Enabled"
+      },
+      "controllerSelection": {
+        "name": "Select Controller"
+      },
+      "keyMappingConfiguration": {
+        "name": "Edit Key Mapping",
+        "jump": {
+          "name": "Jump",
+          "placeholder": "uwu"
+        }
+      },
+      "controllerKeyBind": {
+        "placeholder": "Press a button..."
       }
+    },
+    "mappingTypes": {
+      "left": "Left",
+      "right": "Right",
+      "button": "Button",
+      "dpad": "DPAD",
+      "stick": "Stick",
+      "trigger": "Trigger"
     }
   }
 }

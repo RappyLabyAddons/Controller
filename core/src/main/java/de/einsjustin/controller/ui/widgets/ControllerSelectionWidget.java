@@ -1,9 +1,13 @@
 package de.einsjustin.controller.ui.widgets;
 
 import de.einsjustin.controller.ControllerAddon;
-import de.einsjustin.controller.DefaultControllerHandler;
 import de.einsjustin.controller.api.Controller;
 import de.einsjustin.controller.api.ControllerHandler;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+import java.util.List;
 import net.labymod.api.Textures.SpriteCommon;
 import net.labymod.api.client.gui.lss.property.annotation.AutoWidget;
 import net.labymod.api.client.gui.screen.Parent;
@@ -18,11 +22,6 @@ import net.labymod.api.configuration.settings.annotation.SettingElement;
 import net.labymod.api.configuration.settings.annotation.SettingFactory;
 import net.labymod.api.configuration.settings.annotation.SettingWidget;
 import net.labymod.api.configuration.settings.widget.WidgetFactory;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-import java.util.List;
 
 @AutoWidget
 @SettingWidget
@@ -42,9 +41,7 @@ public class ControllerSelectionWidget extends FlexibleContentWidget {
 
     this.controllerDropdown = new DropdownWidget<>();
     this.controllerDropdown.addId("controller-dropdown");
-    this.controllerDropdown.setChangeListener(controllerName -> {
-      this.controllerHandler.setSelectedController(controllerName);
-    });
+    this.controllerDropdown.setChangeListener(this.controllerHandler::setSelectedController);
     this.addFlexibleContent(this.controllerDropdown);
 
     ButtonWidget refreshButton = ButtonWidget.icon(SpriteCommon.REFRESH);
@@ -52,7 +49,7 @@ public class ControllerSelectionWidget extends FlexibleContentWidget {
     this.setPressable(this::updateDropdown);
     this.addContent(refreshButton);
 
-    updateDropdown();
+    this.updateDropdown();
   }
 
   private void updateDropdown() {

@@ -23,10 +23,10 @@ public class ControllerConfiguration extends AddonConfig {
   }
 
   public ConfigProperty<String> controllerSelection() {
-    return controllerSelection;
+    return this.controllerSelection;
   }
 
   public KeyMappingConfiguration keyMappingConfiguration() {
-    return keyMappingConfiguration;
+    return this.keyMappingConfiguration;
   }
 }

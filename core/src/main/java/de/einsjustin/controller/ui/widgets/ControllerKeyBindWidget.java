@@ -1,9 +1,13 @@
 package de.einsjustin.controller.ui.widgets;
 
 import de.einsjustin.controller.ControllerAddon;
-import de.einsjustin.controller.api.ControllerKey;
 import de.einsjustin.controller.api.Controller;
+import de.einsjustin.controller.api.ControllerKey;
 import de.einsjustin.controller.event.ControllerInputEvent;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import net.labymod.api.client.Minecraft;
 import net.labymod.api.client.component.Component;
 import net.labymod.api.client.gui.lss.property.annotation.AutoWidget;
@@ -23,12 +27,7 @@ import net.labymod.api.configuration.settings.annotation.SettingFactory;
 import net.labymod.api.configuration.settings.annotation.SettingWidget;
 import net.labymod.api.configuration.settings.widget.WidgetFactory;
 import net.labymod.api.event.Subscribe;
-import net.labymod.api.event.client.input.KeyEvent.State;
 import net.labymod.api.util.I18n;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
 
 @AutoWidget
 @SettingWidget
@@ -54,7 +53,9 @@ public class ControllerKeyBindWidget extends TextFieldWidget {
     if (!this.isListening()) {
       Minecraft minecraft = this.labyAPI.minecraft();
       if (minecraft.minecraftWindow().isScreenOpened()) return;
-      if (event.buttonId() != buttonId) return;
+      if (event.buttonId() != this.buttonId) {
+        return;
+      }
 
       MinecraftInputMapping inputMapping = minecraft.options().getInputMapping(this.key);
 
@@ -63,7 +64,7 @@ public class ControllerKeyBindWidget extends TextFieldWidget {
         case UNPRESSED -> inputMapping.unpress();
       }
       return;
-    };
+    }
 
     Controller controller = event.controller();
     Controller selectedController = ControllerAddon.references().controllerHandler().getSelectedController();
@@ -131,7 +132,7 @@ public class ControllerKeyBindWidget extends TextFieldWidget {
     if (this.buttonId == -1) {
       return I18n.translate("labymod.ui.keybind.none");
     }
-    ControllerKey key = ControllerKey.getKey(buttonId, trigger);
+    ControllerKey key = ControllerKey.getKey(this.buttonId, this.trigger);
     return String.format(
         "%s %s",
         I18n.translate("controller.mappingType." + key.getType().name().toLowerCase()),

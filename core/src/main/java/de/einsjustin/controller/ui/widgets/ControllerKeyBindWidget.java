@@ -3,6 +3,7 @@ package de.einsjustin.controller.ui.widgets;
 import de.einsjustin.controller.ControllerAddon;
 import de.einsjustin.controller.api.model.Controller;
 import de.einsjustin.controller.api.model.ControllerKey;
+import de.einsjustin.controller.api.model.ControllerKey.MappingType;
 import de.einsjustin.controller.event.ControllerInputEvent;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -58,11 +59,16 @@ public class ControllerKeyBindWidget extends TextFieldWidget {
       }
 
       MinecraftInputMapping inputMapping = minecraft.options().getInputMapping(this.key);
+      if (inputMapping == null) {
+        return;
+      }
 
       switch (event.state()) {
         case PRESS -> inputMapping.press();
         case UNPRESSED -> inputMapping.unpress();
       }
+      return;
+    } else if (!this.key.isBlank()) {
       return;
     }
 
@@ -129,10 +135,10 @@ public class ControllerKeyBindWidget extends TextFieldWidget {
 
   @Override
   protected String getFormattedText() {
-    if (this.buttonId == -1) {
+    ControllerKey key = ControllerKey.getKey(this.buttonId, this.trigger);
+    if (key.getType() == MappingType.NONE) {
       return I18n.translate("labymod.ui.keybind.none");
     }
-    ControllerKey key = ControllerKey.getKey(this.buttonId, this.trigger);
     return String.format(
         "%s %s",
         I18n.translate("controller.mappingType." + key.getType().name().toLowerCase()),

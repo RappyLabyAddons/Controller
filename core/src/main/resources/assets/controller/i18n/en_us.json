@@ -8,9 +8,74 @@
         "name": "Select Controller"
       },
       "keyMappingConfiguration": {
-        "name": "Edit Key Mapping",
+        "header": {
+          "sticks": {
+            "name": "Sticks"
+          },
+          "buttons": {
+            "name": "Buttons"
+          }
+        },
+        "name": "Configuration",
+        "sensitivity": {
+          "name": "Sensitivity"
+        },
+        "deadzoneLeft": {
+          "name": "Deadzone (L)"
+        },
+        "deadzoneRight": {
+          "name": "Deadzone (R)"
+        },
+        "pause": {
+          "name": "Pause Menu"
+        },
+        "tabList": {
+          "name": "Show Tablist"
+        },
+        "chat": {
+          "name": "Open chat"
+        },
+        "command": {
+          "name": "Command"
+        },
         "jump": {
           "name": "Jump"
+        },
+        "sneak": {
+          "name": "Sneak"
+        },
+        "sprint": {
+          "name": "Sprint"
+        },
+        "attack": {
+          "name": "Break block/Attack"
+        },
+        "placeBlock": {
+          "name": "Place block/Use"
+        },
+        "pickBlock": {
+          "name": "Pick block"
+        },
+        "dropItem": {
+          "name": "Drop item"
+        },
+        "hotbarLeft": {
+          "name": "Hotbar left"
+        },
+        "hotbarRight": {
+          "name": "Hotbar right"
+        },
+        "inventory": {
+          "name": "Open inventory"
+        },
+        "swapHands": {
+          "name": "Swap hands"
+        },
+        "screenshot": {
+          "name": "Take screenshot"
+        },
+        "togglePerspective": {
+          "name": "Toggle perspective"
         }
       },
       "controllerKeyBind": {

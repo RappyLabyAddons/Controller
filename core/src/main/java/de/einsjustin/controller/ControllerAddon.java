@@ -16,8 +16,8 @@ public class ControllerAddon extends LabyAddon<ControllerConfiguration> {
   protected void enable() {
     INSTANCE = this;
     this.registerSettingCategory();
+    this.registerListener(new ControllerStickListener(this));
     this.registerListener(new GameTickListener());
-    this.registerListener(new ControllerStickListener());
   }
 
   @Override

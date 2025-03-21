@@ -2,6 +2,7 @@ package de.einsjustin.controller;
 
 import de.einsjustin.controller.config.ControllerConfiguration;
 import de.einsjustin.controller.core.generated.DefaultReferenceStorage;
+import de.einsjustin.controller.listener.ControllerStickListener;
 import de.einsjustin.controller.listener.GameTickListener;
 import net.labymod.api.addon.LabyAddon;
 import net.labymod.api.models.addon.annotation.AddonMain;
@@ -16,6 +17,7 @@ public class ControllerAddon extends LabyAddon<ControllerConfiguration> {
     INSTANCE = this;
     this.registerSettingCategory();
     this.registerListener(new GameTickListener());
+    this.registerListener(new ControllerStickListener());
   }
 
   @Override

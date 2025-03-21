@@ -168,7 +168,7 @@ public class ControllerKeyBindWidget extends TextFieldWidget {
 
     @Override
     public Class<?>[] types() {
-      return new Class[0];
+      return new Class[]{Integer.class};
     }
 
     @Override
@@ -183,9 +183,7 @@ public class ControllerKeyBindWidget extends TextFieldWidget {
               newValue instanceof Integer value ? value : -1)
       );
 
-      return new ControllerKeyBindWidget[] {
-          widget
-      };
+      return new ControllerKeyBindWidget[]{widget};
     }
   }
 

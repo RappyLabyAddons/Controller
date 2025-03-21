@@ -1,7 +1,7 @@
 package de.einsjustin.controller.listener;
 
 import de.einsjustin.controller.ControllerAddon;
-import de.einsjustin.controller.api.CameraHandler;
+import de.einsjustin.controller.api.handlers.CameraHandler;
 import de.einsjustin.controller.event.ControllerStickEvent;
 import net.labymod.api.Laby;
 import net.labymod.api.client.entity.player.ClientPlayer;

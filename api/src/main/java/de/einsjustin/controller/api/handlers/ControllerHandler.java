@@ -1,7 +1,8 @@
-package de.einsjustin.controller.api;
+package de.einsjustin.controller.api.handlers;
 
-import net.labymod.api.reference.annotation.Referenceable;
+import de.einsjustin.controller.api.model.Controller;
 import java.util.List;
+import net.labymod.api.reference.annotation.Referenceable;
 
 @Referenceable
 public interface ControllerHandler {

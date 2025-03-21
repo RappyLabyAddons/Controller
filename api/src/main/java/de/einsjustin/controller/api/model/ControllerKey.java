@@ -1,4 +1,4 @@
-package de.einsjustin.controller.api;
+package de.einsjustin.controller.api.model;
 
 import net.labymod.api.util.I18n;
 import net.labymod.api.util.StringUtil;

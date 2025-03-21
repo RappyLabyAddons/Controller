@@ -1,6 +1,6 @@
 package de.einsjustin.controller.v1_20_1;
 
-import de.einsjustin.controller.api.CameraHandler;
+import de.einsjustin.controller.api.handlers.CameraHandler;
 import net.labymod.api.models.Implements;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;

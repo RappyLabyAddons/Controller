@@ -1,4 +1,4 @@
-package de.einsjustin.controller.api;
+package de.einsjustin.controller.api.handlers;
 
 import net.labymod.api.reference.annotation.Referenceable;
 

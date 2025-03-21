@@ -1,8 +1,8 @@
 package de.einsjustin.controller.ui.widgets;
 
 import de.einsjustin.controller.ControllerAddon;
-import de.einsjustin.controller.api.Controller;
-import de.einsjustin.controller.api.ControllerHandler;
+import de.einsjustin.controller.api.handlers.ControllerHandler;
+import de.einsjustin.controller.api.model.Controller;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

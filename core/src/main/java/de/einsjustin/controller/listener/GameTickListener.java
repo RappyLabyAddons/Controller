@@ -1,8 +1,8 @@
 package de.einsjustin.controller.listener;
 
 import de.einsjustin.controller.ControllerAddon;
-import de.einsjustin.controller.api.Controller;
-import de.einsjustin.controller.api.ControllerHandler;
+import de.einsjustin.controller.api.handlers.ControllerHandler;
+import de.einsjustin.controller.api.model.Controller;
 import de.einsjustin.controller.event.ControllerInputEvent;
 import de.einsjustin.controller.event.ControllerStickEvent;
 import net.labymod.api.Laby;
